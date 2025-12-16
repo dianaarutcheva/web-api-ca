@@ -3,7 +3,9 @@ import express from 'express';
 import './db';
 import cors from 'cors';
 import usersRouter from './api/users';
+// eslint-disable-next-line no-unused-vars
 import authenticate from './authenticate';
+import moviesRouter from './api/movies'; 
 
 dotenv.config();
 
@@ -28,6 +30,9 @@ app.use(express.json());
 
 //Users router
 app.use('/api/users', usersRouter);
+
+//Movies Router
+app.use('/api/movies', moviesRouter); 
 
 
 app.use(errHandler);
