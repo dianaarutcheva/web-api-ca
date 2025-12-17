@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import { useNavigate } from "react-router";
+import { useNavigate } from "react-router-dom";
 import { MoviesContext } from "../../contexts/moviesContext";
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";

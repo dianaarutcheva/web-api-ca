@@ -1,5 +1,5 @@
 import React from "react";
-import { useParams } from "react-router";
+import { useParams } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import { getMovieRecommendations } from "../api/tmdb-api";
 import Spinner from "../components/spinner";

@@ -1,5 +1,5 @@
 import { useContext, useState } from "react";
-import { Navigate, useLocation, Link } from "react-router";
+import { Navigate, useLocation, Link } from "react-router-dom";
 import { AuthContext } from "../contexts/authContext";
 
 const LoginPage = () => {

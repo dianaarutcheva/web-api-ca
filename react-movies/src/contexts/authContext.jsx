@@ -1,5 +1,5 @@
 // same as wad2-api-labs tasky-react/src/contexts/authContext.jsx
-import { useState, createContext } from "react";
+import React, { useState, createContext } from "react";
 import { login, signup } from "../api/movies-api"; 
 
 export const AuthContext = createContext(null);
