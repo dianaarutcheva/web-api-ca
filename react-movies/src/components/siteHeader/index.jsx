@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
@@ -11,6 +11,8 @@ import { useNavigate } from "react-router-dom";
 import { styled } from '@mui/material/styles';
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
+import { AuthContext } from "../../contexts/authContext";
+
 
 
 const Offset = styled('div')(({ theme }) => theme.mixins.toolbar);
@@ -26,6 +28,7 @@ const SiteHeader = () => {
  
   const navigate = useNavigate();
 
+  const { isAuthenticated, userName, signout } = useContext(AuthContext);
 
   const menuOptions = [
   { label: "Home", path: "/" },
@@ -100,6 +103,16 @@ const SiteHeader = () => {
                       {opt.label}
                     </MenuItem>
                   ))}
+
+                  {!isAuthenticated ? (
+                   <>
+                   <MenuItem onClick={() => navigate("/login")}>Login</MenuItem>
+                   <MenuItem onClick={() => navigate("/signup")}>Sign Up</MenuItem>
+                    </>
+                   ) : (
+                   <MenuItem onClick={signout}>Logout</MenuItem>
+                   )}
+
                 </Menu>
               </>
             ) : (
@@ -114,12 +127,41 @@ const SiteHeader = () => {
                     "&:hover": {
                     color: "#ffb6c1", // lighter pink on hover
                     textShadow: "0 0 8px #ffffff", // white glow
-    },
-  }}
+                 },
+                 }}
 >
-  {opt.label}
-</Button>
-                ))}
+               {opt.label}
+               </Button>
+               ))}
+
+                {isAuthenticated ? (
+               <>
+               <Typography sx={{ color: "#ff69b4", marginLeft: 2 }}>
+               Welcome {userName}!
+              </Typography>
+              <Button
+              onClick={signout}
+              sx={{ color: "#ff69b4", marginLeft: 1 }}
+                >
+               Logout
+             </Button>
+               </>
+               ) : (
+               <>
+               <Button
+              onClick={() => navigate("/login")}
+               sx={{ color: "#ff69b4", marginLeft: 2 }}
+                   >
+               Login
+             </Button>
+             <Button
+              onClick={() => navigate("/signup")}
+              sx={{ color: "#ff69b4" }}
+    >
+               Sign Up
+              </Button>
+              </>
+               )}
               </>
             )}
         </Toolbar>

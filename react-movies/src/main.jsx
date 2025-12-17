@@ -49,8 +49,8 @@ const App = () => {
 
       <QueryClientProvider client={queryClient}>
         <BrowserRouter>
-          <SiteHeader />
           <AuthContextProvider>
+            <SiteHeader />
           <MoviesContextProvider>
             <Routes>
             <Route path="/reviews/:id" element={<MovieReviewPage />} />
