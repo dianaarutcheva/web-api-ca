@@ -22,11 +22,16 @@ const LoginPage = () => {
 
   return (
     <>
-      <h2>Login page</h2>
+      <h2 style={{ color: "#ff69b4" }}>Login page</h2>
       <input placeholder="user name" onChange={e => setUserName(e.target.value)} />
       <input type="password" placeholder="password" onChange={e => setPassword(e.target.value)} />
       <button onClick={login}>Log in</button>
-      <p>Not registered? <Link to="/signup">Sign Up</Link></p>
+      <p>
+      Not registered?{" "}
+      <Link to="/signup" style={{ color: "#ff69b4" }}>
+      Sign Up
+      </Link>
+      </p>
     </>
   );
 };

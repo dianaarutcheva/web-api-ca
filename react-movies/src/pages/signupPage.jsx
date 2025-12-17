@@ -23,7 +23,7 @@ const SignUpPage = () => {
 
   return (
     <>
-      <h2>SignUp page</h2>
+      <h2 style={{ color: "#ff69b4" }}>Sign Up Page</h2>
       <input placeholder="user name" onChange={e => setUserName(e.target.value)} />
       <input type="password" placeholder="password" onChange={e => setPassword(e.target.value)} />
       <button onClick={register}>Register</button>
