@@ -5,7 +5,9 @@ import cors from 'cors';
 import usersRouter from './api/users';
 // eslint-disable-next-line no-unused-vars
 import authenticate from './authenticate';
-import moviesRouter from './api/movies'; 
+import moviesRouter from './api/movies';
+// for ca2
+import reviewsRouter from './api/reviews'; 
 
 dotenv.config();
 
@@ -33,6 +35,9 @@ app.use('/api/users', usersRouter);
 
 //Movies Router
 app.use('/api/movies', moviesRouter); 
+
+// Reviews router
+app.use('/api/reviews', reviewsRouter);
 
 
 app.use(errHandler);
